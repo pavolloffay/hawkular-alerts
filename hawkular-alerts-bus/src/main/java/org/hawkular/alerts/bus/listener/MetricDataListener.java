@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Red Hat, Inc. and/or its affiliates
+ * Copyright 2015-2016 Red Hat, Inc. and/or its affiliates
  * and other contributors as indicated by the @author tags.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -111,7 +111,8 @@ public class MetricDataListener extends BasicMessageListener<MetricDataMessage> 
     @Override
     protected String convertReceivedMessageClassNameToDesiredMessageClassName(String className) {
 
-        if (className.equals("org.hawkular.metrics.component.publish.MetricDataMessage")) {
+        if (className.equals("org.hawkular.metrics.component.publish.MetricDataMessage") ||
+                className.equals("org.hawkular.datamining.bus.message.MetricDataMessage")) {
             return "org.hawkular.alerts.bus.messages.MetricDataMessage";
         }
 
